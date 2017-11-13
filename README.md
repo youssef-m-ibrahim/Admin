@@ -1,1 +1,1 @@
-- [Linked List](linkList)
+[Linked List](dataStructure/linkList)
