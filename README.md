@@ -1,5 +1,7 @@
 - Data Structure
   - [Linked List](dataStructure/linkList)
-  - [maxHeap](dataStructure/maxHeap)
+  - [MaxHeap](dataStructure/maxHeap)
+  - [MergeSort](dataStructure/MergeSort)
+  - [BST](dataStructure/BST)
 - Unsolved Problems
   - [Dogs and bowls](http://codeforces.com/gym/100944/problem/D?locale=en)
