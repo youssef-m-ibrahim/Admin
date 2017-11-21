@@ -3,5 +3,6 @@
   - [MaxHeap](dataStructure/maxHeap)
   - [MergeSort](dataStructure/MergeSort)
   - [BST](dataStructure/BST)
+  - [AVL](dataStructure/AVL)
 - Unsolved Problems
   - [Dogs and bowls](http://codeforces.com/gym/100944/problem/D?locale=en)
