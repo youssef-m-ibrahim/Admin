@@ -1,0 +1,4 @@
+- Tutorials
+  - [6. AVL Trees, AVL Sort](https://www.youtube.com/watch?v=FNeL18KsWPc)
+- Blogs
+  - [GeeksforGeeks](http://www.geeksforgeeks.org/avl-tree-set-1-insertion/)

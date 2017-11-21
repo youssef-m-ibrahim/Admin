@@ -4,4 +4,4 @@
   - [MergeSort](dataStructure/MergeSort)
   - [BST](dataStructure/BST)
 - Unsolved Problems
-  - [Dogs and bowls](http://codeforces.com/gym/100944/problem/D?locale=en)
+  - [Dogs and bowls](http://codeforces.com/gym/100944/problem/D?locale=en)(problems/Dogs and bowls)
