@@ -1,7 +1,10 @@
 - Data Structure
-  - [Linked List](dataStructure/linkList)
-  - [MaxHeap](dataStructure/maxHeap)
-  - [MergeSort](dataStructure/MergeSort)
-  - [BST](dataStructure/BST)
+  - [Linked List](dataStructure & algorithms/linkList)
+  - [MaxHeap](dataStructure & algorithms/maxHeap)
+  - [MergeSort](dataStructure & algorithms/MergeSort)
+  - [BST](dataStructure & algorithms/BST)
+- Algorithms
+  - [shunting yard algorithm](dataStructure & algorithms/shunting yard algorithm)
 - Unsolved Problems
   - [Dogs and bowls](http://codeforces.com/gym/100944/problem/D?locale=en)(problems/Dogs and bowls)
+  - [Taxi](http://codeforces.com/problemset/problem/158/B)
