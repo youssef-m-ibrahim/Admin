@@ -34,6 +34,7 @@ int get_operator_order(char cur)
 	if(cur == '+' || cur == '-')return 1;
 	if(cur == '*' || cur == '/')return 2;
 	if(cur == '^')return 3;
+	if(cur == '$')return 4;
 	if(cur == '(')return 0;
 	if(cur == ')')return 0;
 };
@@ -89,13 +90,30 @@ char* infix_to_reverse_polish(char *infix)
 	{
 		if(infix[i] != ' ')
 		{
-			if(infix[i] == '*' || infix[i] == '/' || infix[i] == '^' || infix[i] == '+' || infix[i] == '-' || infix[i] == '(' || infix[i] == ')')
+			if(infix[i] == '[')
+			{
+				while(infix[i] != ']')
+				{
+					if(infix[i] != ' ')
+					{
+						temp[j] = infix[i];
+						j++;
+					}
+					i++;
+				}
+			}
+			if(infix[i] == '.' || infix[i] == '*' || infix[i] == '/' || infix[i] == '^' || infix[i] == '+' || infix[i] == '-' || infix[i] == '(' || infix[i] == ')')
 			{
 				flag = false;
 				if(temp_stack->top != NULL)
 				{
 					if((infix[i] == '(' || is_higher_order_than(infix[i], temp_stack->top))&& infix[i] != ')'){
 						Node *x = new Node(infix[i]);
+						if(infix[i] == '.')
+						{
+							x->value = '$';
+							i++;
+						}
 						temp_stack->add(x);
 					}else{
 						Node *x = temp_stack->pop();
@@ -138,6 +156,31 @@ float reverse_polish_to_float(char *reverse_polish)
 	for (int i = 0; reverse_polish[i] != '\0'; ++i)
 	{
 		if(reverse_polish[i] == ';');
+		else if(reverse_polish[i] == '[')
+		{
+			char *temp_string = new char[0];
+			int j = 0;
+			i++;
+			while(reverse_polish[i] != ']')
+			{
+				if(reverse_polish[i] != ' ')
+				{
+					temp_string[j] = reverse_polish[i];
+					j++;
+				}
+				i++;
+			}
+			OperandNode *tempNode = new OperandNode(atof(temp_string));
+			temp_stack->add(tempNode);
+			delete temp_string;
+		}
+		else if(reverse_polish[i] == '$')
+		{
+			OperandNode *left = temp_stack->pop();
+			OperandNode *tempNode = new OperandNode(left->value * -1);
+			temp_stack->add(tempNode);
+			delete left;
+		}
 		else if(reverse_polish[i] == '*' || reverse_polish[i] == '/' || reverse_polish[i] == '^' || reverse_polish[i] == '+' || reverse_polish[i] == '-')
 		{
 			OperandNode *right = temp_stack->pop();
@@ -170,7 +213,7 @@ float reverse_polish_to_float(char *reverse_polish)
 				i++;
 				if(reverse_polish[i] != '\0')
 				{
-					if(reverse_polish[i] == ';' || reverse_polish[i] == '*' || reverse_polish[i] == '/' || reverse_polish[i] == '^' || reverse_polish[i] == '+' || reverse_polish[i] == '-' || reverse_polish[i] == '(' || reverse_polish[i] == ')')
+					if(reverse_polish[i] == ';' || reverse_polish[i] == '*' || reverse_polish[i] == '/' || reverse_polish[i] == '^' || reverse_polish[i] == '+' || reverse_polish[i] == '-' || reverse_polish[i] == '(' || reverse_polish[i] == ')' || reverse_polish[i] == '$' || reverse_polish[i] == '[')
 					{
 						i--;
 						break;	
@@ -188,7 +231,7 @@ float reverse_polish_to_float(char *reverse_polish)
 
 int main()
 {
-	char infix[] = "(500*15+26+456+452+452+27+82+72+7)+((257+575+78+5785+785+7857)/((257+575+78+5785+785+7857)+(257+575+78+5785+785+7857)))+85+7+57+8578578+5+7+578+5+7+57+57+58+75/758+(500*15+26+456+452+452+27+82+72+7)+((257+575+78+5785+785+7857)/((257+575+78+5785+785+7857)+(257+575+78+5785+785+7857)))+85+7+57+8578578+5+7+578+5+7+57+57+58+75/758";
+	char infix[] = "2*([-255]+2)*5322321/126316./+321-2112361+([262]+323)"; //or "5+152*./263[255]"
 	char *temp = infix_to_reverse_polish(infix);
 	// for (int i = 0; temp[i] != '\0'; ++i)
 	// {
