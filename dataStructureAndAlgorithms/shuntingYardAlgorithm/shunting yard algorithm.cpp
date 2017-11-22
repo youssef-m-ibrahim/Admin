@@ -17,12 +17,12 @@ class Node
 	
 };
 
-class OperandNode: public Node
+class OperandNode
 {
 	public:
 	OperandNode *child;
 	float value;
-	OperandNode(float value): Node(1)
+	OperandNode(float value)
 	{
 		this->value = value;
 	}
