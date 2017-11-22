@@ -81,7 +81,7 @@ class Stack
 
 char* infix_to_reverse_polish(char *infix)
 {
-	char *temp = new char;
+	char *temp = new char[800];
 	Stack<Node>* temp_stack = new Stack<Node>();
 	int j = 0;
 	bool flag = true;
@@ -128,14 +128,14 @@ char* infix_to_reverse_polish(char *infix)
 		temp[j] = x->value;
 		j++;
 	}
-	temp[j] = '\0';
+
 	return temp;
 }
 
 float reverse_polish_to_float(char *reverse_polish)
 {
 	Stack<OperandNode>* temp_stack = new Stack<OperandNode>();
-	for (int i = 0; i < reverse_polish[i] != '\0'; ++i)
+	for (int i = 0; reverse_polish[i] != '\0'; ++i)
 	{
 		if(reverse_polish[i] == ';');
 		else if(reverse_polish[i] == '*' || reverse_polish[i] == '/' || reverse_polish[i] == '^' || reverse_polish[i] == '+' || reverse_polish[i] == '-')
@@ -188,7 +188,7 @@ float reverse_polish_to_float(char *reverse_polish)
 
 int main()
 {
-	char infix[] = "165*(5+6)*(2*3222+616/(165)*51)"; //12041436
+	char infix[] = "(500*15+26+456+452+452+27+82+72+7)+((257+575+78+5785+785+7857)/((257+575+78+5785+785+7857)+(257+575+78+5785+785+7857)))+85+7+57+8578578+5+7+578+5+7+57+57+58+75/758+(500*15+26+456+452+452+27+82+72+7)+((257+575+78+5785+785+7857)/((257+575+78+5785+785+7857)+(257+575+78+5785+785+7857)))+85+7+57+8578578+5+7+578+5+7+57+57+58+75/758";
 	char *temp = infix_to_reverse_polish(infix);
 	// for (int i = 0; temp[i] != '\0'; ++i)
 	// {
