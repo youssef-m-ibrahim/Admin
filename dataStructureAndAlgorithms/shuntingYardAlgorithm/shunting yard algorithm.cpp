@@ -40,7 +40,8 @@ int get_operator_order(char cur)
 
 bool is_higher_order_than(char cur, Node* node)
 {
-	if(get_operator_order(cur) >= get_operator_order(node->value))
+	if(node->value == '(' && cur == ')')return true;
+	if(get_operator_order(cur) > get_operator_order(node->value))
 	{
 		return true;
 	}
@@ -187,8 +188,7 @@ float reverse_polish_to_float(char *reverse_polish)
 
 int main()
 {
-	//char infix[] = "2*8  /4+ 6*(15+87  /(2+1))"; //268
-	char infix[] = "165*((5+6))*(2*3)"; //10890
+	char infix[] = "165*(5+6)*(2*3222+616/(165)*51)"; //12041436
 	char *temp = infix_to_reverse_polish(infix);
 	// for (int i = 0; temp[i] != '\0'; ++i)
 	// {
