@@ -82,7 +82,19 @@ class Stack
 
 char* infix_to_reverse_polish(char *infix)
 {
-	char *temp = new char[800];
+	int countAll = 0, countVirtual = 0;
+	for (int i = 0; infix[i] != '\0'; ++i)
+	{
+		if(infix[i] != ' ')
+		{
+			countAll++;
+			if(infix[i] == '.' || infix[i] == '*' || infix[i] == '/' || infix[i] == '^' || infix[i] == '+' || infix[i] == '-' || infix[i] == '(' || infix[i] == ')' || infix[i] == ']' || infix[i] == '[')
+			{
+				countVirtual++;
+			}
+		}
+	}
+	char *temp = new char[countAll + countVirtual + 1];
 	Stack<Node>* temp_stack = new Stack<Node>();
 	int j = 0;
 	bool flag = true;
@@ -111,6 +123,10 @@ char* infix_to_reverse_polish(char *infix)
 						Node *x = new Node(infix[i]);
 						if(infix[i] == '.')
 						{
+							while(infix[i] != '/')
+							{
+								i++;
+							}
 							x->value = '$';
 							i++;
 						}
@@ -158,7 +174,15 @@ float reverse_polish_to_float(char *reverse_polish)
 		if(reverse_polish[i] == ';');
 		else if(reverse_polish[i] == '[')
 		{
-			char *temp_string = new char[0];
+			int count = 0;
+			for (int k = i+1; reverse_polish[k] != ']'; ++k)
+			{
+				if(reverse_polish[k] != ' ')
+				{
+					count++;
+				}
+			}
+			char *temp_string = new char[count];
 			int j = 0;
 			i++;
 			while(reverse_polish[i] != ']')
@@ -171,6 +195,7 @@ float reverse_polish_to_float(char *reverse_polish)
 				i++;
 			}
 			OperandNode *tempNode = new OperandNode(atof(temp_string));
+			/*temp value*/
 			temp_stack->add(tempNode);
 			delete temp_string;
 		}
@@ -178,6 +203,7 @@ float reverse_polish_to_float(char *reverse_polish)
 		{
 			OperandNode *left = temp_stack->pop();
 			OperandNode *tempNode = new OperandNode(left->value * -1);
+			/*temp value*/
 			temp_stack->add(tempNode);
 			delete left;
 		}
@@ -189,18 +215,23 @@ float reverse_polish_to_float(char *reverse_polish)
 			switch(reverse_polish[i]){
 				case '+':
 					tempNode = new OperandNode(left->value + right->value);
+					/*temp values*/
 					break;
 				case '-':
 					tempNode = new OperandNode(left->value - right->value);
+					/*temp values*/
 					break;
 				case '*':
 					tempNode = new OperandNode(left->value * right->value);
+					/*temp values*/
 					break;
 				case '/':
 					tempNode = new OperandNode(left->value / right->value);
+					/*temp values*/
 					break;
 				case '^':
 					tempNode = new OperandNode(pow(left->value, right->value));
+					/*temp values*/
 					break;
 			}
 			temp_stack->add(tempNode);
@@ -231,7 +262,7 @@ float reverse_polish_to_float(char *reverse_polish)
 
 int main()
 {
-	char infix[] = "2*([-255]+2)*5322321/126316./+321-2112361+([262]+323)"; //or "5+152*./263[255]"
+	char infix[] = "2*([-25  5]+2)*414532  2321/ . / 126316  +3 21-2112361+( [  2 6 2 ]+3 23)+15616516+222+51/645*6232/((600/1533)+21)"; //or "5+152*./263[255]"
 	char *temp = infix_to_reverse_polish(infix);
 	// for (int i = 0; temp[i] != '\0'; ++i)
 	// {
