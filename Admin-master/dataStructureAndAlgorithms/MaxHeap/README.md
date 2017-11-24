@@ -1,4 +1,0 @@
-- Tutorials
-  - [4. Heaps and Heap Sort](https://youtu.be/B7hVxCmfPtM)
-  - [Heap - Max Heapify](https://youtu.be/5iBUTMWGtIQ)
-  - [Heap - Build Max Heap](https://youtu.be/WsNQuCa_-PU)

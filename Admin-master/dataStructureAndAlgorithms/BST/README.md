@@ -1,4 +1,0 @@
-- Tutorials
-  - [5. Binary Search Trees, BST Sort](https://youtu.be/9Jry5-82I68?list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb)
-- Blogs
-  - [GeeksforGeeks](http://www.geeksforgeeks.org/avl-tree-set-1-insertion/)
