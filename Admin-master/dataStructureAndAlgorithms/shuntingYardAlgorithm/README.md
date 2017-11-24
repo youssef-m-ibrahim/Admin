@@ -1,0 +1,5 @@
+- Tutorials
+  - [CS 235 Lab 3 Overview - The Shunting Yard](https://www.youtube.com/watch?v=HJOnJU77EUs)
+  - [Infix to reverse polish using a stack](https://www.youtube.com/watch?v=LQ-iW8jm6Mk)
+  - [building an expression tree from infix then walking it to produce postfix](https://www.youtube.com/watch?v=nVcGsgsOlGU&t=10s)
+  - [Converting from infix to reverse polish walking an expression tree](https://youtu.be/zUvBbmJt8mQ)
