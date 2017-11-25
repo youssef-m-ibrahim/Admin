@@ -8,4 +8,4 @@
 - Unsolved Problems
   - [Dogs and bowls](http://codeforces.com/gym/100944/problem/D?locale=en)
   - [Taxi](http://codeforces.com/problemset/problem/158/B) ... Dih sahla ebda2o biha :D
-
+  - [Trip For Meal](http://codeforces.com/problemset/problem/876/A)
