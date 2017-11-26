@@ -3,9 +3,11 @@
   - [MaxHeap](dataStructureAndAlgorithms/maxHeap)
   - [MergeSort](dataStructureAndAlgorithms/MergeSort)
   - [BST](dataStructureAndAlgorithms/BST)
+  - [AVL](dataStructureAndAlgorithms/AVL)
 - Algorithms
   - [shunting yard algorithm](dataStructureAndAlgorithms/shuntingYardAlgorithm)
-- Unsolved Problems
+- Problems
   - [Dogs and bowls](http://codeforces.com/gym/100944/problem/D?locale=en)
   - [Taxi](http://codeforces.com/problemset/problem/158/B) ... Dih sahla ebda2o biha :D
   - [Trip For Meal](http://codeforces.com/problemset/problem/876/A)
+  - [Beautiful Divisors](http://codeforces.com/problemset/problem/893/B)
