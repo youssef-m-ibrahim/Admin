@@ -1,5 +1,6 @@
 - Data Structure
   - [Linked List](dataStructureAndAlgorithms/linkList)
+  -[Linked List Src2](https://www.thegeekstuff.com/2012/08/c-linked-list-example)
   - [MaxHeap](dataStructureAndAlgorithms/maxHeap)
   - [MergeSort](dataStructureAndAlgorithms/MergeSort)
   - [BST](dataStructureAndAlgorithms/BST)
